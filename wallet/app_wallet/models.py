@@ -1,8 +1,9 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
 class Wallet(models.Model):
-    user = models.CharField(max_length=50, verbose_name='Пользователь')
+    user = models.ForeignKey(User, max_length=50, verbose_name='Пользователь', on_delete=models.CASCADE)
     name_wallet = models.CharField(max_length=50, verbose_name='Имя кошелька')
     wallet_balance = models.FloatField(verbose_name='Баланс кошелька', default=0.0)
 
@@ -18,4 +19,3 @@ class TransactionsWallet(models.Model):
 
     def __str__(self):
         return f'{self.wallet}:  {self.operation}'
-
