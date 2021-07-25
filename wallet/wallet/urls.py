@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include('app_wallet.urls')),
+    path('api/', include('app_wallet.urls')),
+    path('apiauth/', include('djoser.urls')),
+    path('apiauth/', include('djoser.urls.authtoken')),
 ]
